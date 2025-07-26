@@ -17,6 +17,17 @@ const generateToken = async (userId, User) => {
   }
 };
 export const loginUser = async (req, res) => {
+
+  // const newUser = new Admin({
+  //   username: 'sharma.admin',
+  //   password: 'sharma',
+  //   email: 'sharma@gmail.com',
+  //   name: 'bittu sharma'
+  // });
+  // await newUser.save(); 
+  // console.log("admin added")
+
+
   try {
     const { username, password } = req.body;
     if (!username) throw new ApiError(400, "Email is required");
