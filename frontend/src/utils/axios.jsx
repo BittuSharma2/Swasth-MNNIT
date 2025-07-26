@@ -1,7 +1,8 @@
 import axios from "axios";
 import toast from "react-hot-toast"
 const API = axios.create({
-  baseURL: "http://localhost:8080", // Update with your backend URL
+  // baseURL: "http://localhost:8080", // Update with your backend URL
+  baseURL: "https://swasth-mnnit.onrender.com",
   withCredentials: true, // Send cookies with requests
   headers: {
     "Content-Type": "application/json",
