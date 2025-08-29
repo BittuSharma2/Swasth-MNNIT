@@ -144,7 +144,7 @@ function Home(){
         <div
           className="bg-cover bg-center h-[400px] md:h-[500px]"
           style={{
-            backgroundImage: "url('../public/background.webp')",
+            backgroundImage: "url('/background.webp')",
             backgroundPosition: "center",
           }}
         >
