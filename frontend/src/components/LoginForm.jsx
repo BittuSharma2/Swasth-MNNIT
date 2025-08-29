@@ -16,9 +16,47 @@ export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
-  const guest = () => {
-    setUsername("bittu.admin");
-    setPassword("sharma");
+  const guest = async (e) => {
+    // setUsername("bittu.admin");
+    // setPassword("sharma");
+    let role=e,user="",pass="";
+    switch (role) {
+      case "admin":
+        user="guest.admin";
+        pass="guest$91";
+        break;
+    
+      case "doctor":
+        user="guest.dr2";
+        pass="1234567891";
+        break;
+      case "staff":
+        user="guest.st4";
+        pass="1234567892";
+        break;
+    
+      default:
+        role="";
+    }
+
+    setIsLoading(true);
+    try {
+      // Call login API
+      await loginAPI(user, pass);
+      // Show success toast
+      toast.success(`Login successful! Redirecting to ${role} dashboard...`, {
+        autoClose: 2000,
+        onClose: () => navigate(`/${role}/dashboard`)
+      });
+    } catch (error) {
+      // Show error toast
+      toast.error(error.message || "Invalid credentials", {
+        autoClose: 3000
+      });
+    } finally {
+      setIsLoading(false);
+    }
+
   }
 
   const handleSubmit = async (e) => {
@@ -115,7 +153,11 @@ export default function LoginForm() {
             </Button>
           </CardFooter>
 
-          <h3 className=" ml-4 flex gap-2">Guest Login for<p className="text-red-500 font-bold underline cursor-pointer hover:text-red-400" onClick={guest} >Admin</p></h3>
+          <h3 className=" ml-4 flex gap-2">Guest Login for
+            <p className="text-red-500 font-bold underline cursor-pointer hover:text-red-400" onClick={()=>guest("admin")} >Admin</p>
+            <p className="text-red-500 font-bold underline cursor-pointer hover:text-red-400" onClick={()=>guest("doctor")} >Doctor</p>
+            <p className="text-red-500 font-bold underline cursor-pointer hover:text-red-400" onClick={()=>guest("staff")} >Staff</p>
+            </h3>
         </form>
       </Card>
     </>
