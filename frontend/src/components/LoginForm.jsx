@@ -16,6 +16,11 @@ export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
+  const guest = () => {
+    setUsername("bittu.admin");
+    setPassword("sharma");
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -109,6 +114,8 @@ export default function LoginForm() {
               {isLoading ? "Logging in..." : "Login"}
             </Button>
           </CardFooter>
+
+          <h3 className=" ml-4 flex gap-2">Guest Login for<p className="text-red-500 font-bold underline cursor-pointer hover:text-red-400" onClick={guest} >Admin</p></h3>
         </form>
       </Card>
     </>
