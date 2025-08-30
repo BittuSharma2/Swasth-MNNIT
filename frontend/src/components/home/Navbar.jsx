@@ -146,8 +146,8 @@ function Navbar(){
         <DialogHeader>
       <DialogTitle>  
       </DialogTitle>
-      {/* <DialogDescription>description
-      </DialogDescription> */}
+      <DialogDescription>
+      </DialogDescription>
     </DialogHeader>
         <Card className="w-full mt-3">
   <CardHeader>

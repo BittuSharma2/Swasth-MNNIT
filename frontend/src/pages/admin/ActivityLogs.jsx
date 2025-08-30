@@ -30,7 +30,7 @@ function ActivityLogs() {
 
   // Safe filtering function
 const filteredLogs = logs.filter((log) => {
-  console.log(log.activity)
+  // console.log(log.activity)
   // User search - handle both object and string cases
   const userString = typeof log.user === 'object' 
     ? `${log.user?.name || ''} ${log.user?.email || ''}`.toLowerCase()

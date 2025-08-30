@@ -13,6 +13,7 @@ function Header({sideMenu,showBell}){
     const [openProfile, setOpenProfile] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [user, setUser] = useState(null);
+    const [notifications, setNotifications] = useState([]);
     const navigate = useNavigate();
   
     const menuRef = useRef(null);
@@ -41,7 +42,6 @@ function Header({sideMenu,showBell}){
         }
       };
 
-      const [notifications, setNotifications] = useState([]);
       useEffect(() => {
         const fetchUserAndNotifications = async () => {
           try {
