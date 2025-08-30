@@ -143,7 +143,12 @@ function Navbar(){
               </button>
             </DialogTrigger>
         <DialogContent className="max-w-3xl">
-
+        <DialogHeader>
+      <DialogTitle>  
+      </DialogTitle>
+      {/* <DialogDescription>description
+      </DialogDescription> */}
+    </DialogHeader>
         <Card className="w-full mt-3">
   <CardHeader>
     <CardTitle>Verify your email</CardTitle>
