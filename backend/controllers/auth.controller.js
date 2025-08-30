@@ -50,8 +50,8 @@ export const loginUser = async (req, res) => {
 
     const options = {
       httpOnly: true,
-      secure: true,
-      sameSite: "lax",
+      secure: true,   //required with samesite=None
+      sameSite: "None", //allow cross-site
     };
     if (role === 'dr' || role === 'st') {
       const activity = new ActivityLog({
@@ -90,7 +90,7 @@ export const logoutUser = async (req, res) => {
     const options = {
       httpOnly: true,
       secure: true,
-      sameSite: "lax",
+      sameSite: "None",  //allow corss-site
     };
     if (req.role) {  
       try {
